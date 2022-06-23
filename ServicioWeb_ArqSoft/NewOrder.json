@@ -1,0 +1,18 @@
+{
+    "id_user": 1,
+    "detalles" :[
+        {
+        "product": {
+            "id_product" :1
+        },
+        "price_det" : 170000,
+        "cant_det" : 1
+    },
+        {"product": {
+            "id_product":2
+        },
+        "price_det": 70000,
+        "cant_det" : 2
+    }
+    ]
+}

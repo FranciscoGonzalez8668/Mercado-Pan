@@ -1,0 +1,54 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.header{
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    height: 5rem;
+    text-align:center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    justify-content:space-between;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+
+.logo{
+    display: flex; 
+    margin-left: 20rem;
+    height: 8rem;
+
+   
+}
+.clases{
+    width: 50rem;
+}
+
+.botones{
+    padding-left: 1rem;
+    padding-right: 2rem;
+    text-decoration: none;
+    color: white;
+}
+.carrito{
+    text-decoration: none;
+    color: white;
+    height: 4rem;
+    padding-left: 1rem;
+    padding-right: 2rem;
+}
+nav a{
+   font-weight: 500; 
+   padding-right: 17rem;
+   font-size: 1.3rem;
+}
+
+
+      
+ 
+
+
+    
+
+
+    

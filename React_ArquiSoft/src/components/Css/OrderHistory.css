@@ -1,0 +1,14 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.ordenes{
+    padding-left: 1rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+}
+.precio_unitario{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.total{
+    padding-left: 20rem;
+}

@@ -1,0 +1,152 @@
+Interfaces en un sevicio web son las formas que yovoy a usar para acceder al servicio(la conexcion de get post put delete, lo que devuelve
+	tanto como el httpstatus el json)
+Frontend es la vista final del usuario y es el que debe poder consumir todos los servicios que estamos usando.
+
+Autentificacion de usuarios (por Token/cookies/jwt se decide en el teorico) No hay recuperar contraseña, ni verificar el email.
+No es importante la apariencia del servicio web, se puede tranquilamente hacerla en blanco y negro.
+Search en la pantalla de bienvenida donde se puede empezar a buscar los productos(puede traer la cantidad de productos que nosotros)
+	la busqueda tiene que ser con un like. Ej: si el titulo es como x 
+A la hora de mostrar los productos lo que uno debe mostrar obligatoriamente el titulo el resto se puede agregar si queremos. A la hora de 
+	hacer click sobre el producto se debe poder ver los detalles del producto como (precio, stock, foto, etc). Desde el click 
+	se debe poder agregar al carrito, este puede estar almacenado en las coockies o almacenadas en la base de datos(es el boton de 
+	agregar al cashito[a lo shiojano])
+El carrito se compone tanto de los productos como la cantidad deseada. Se debe contemplar que si busco dos veces el mismo prodcuto tomando 
+	todo el proceso de hacerlo debe aumentar la cantidad no generar una linea nueva en carrito. Hay dos formas de verificar el stock
+	se puede verificar a la hora de apretar el boton del carrito donde te pone el resumen y/o verificar a la otra de generar la compra.
+Pagina del carrito sumatoria total, linea por productos(con cantidad, precio unitario). Poder confirmar la compra lo que lleva a una pagina
+	 de resumen con sus detalles tanto como direccion monto usuario que compra. Esto termina generando que se saquen los productos 
+Mis compras donde se va a tener uqe buscar en la DB todas las ordenes generadas por el usaurio(es un listado de compras)
+
+No hace falta meter los usuarios con un metodo post ya que los cargamos directamente en la DB
+
+Extra point >tener un listado de categorias, por lo cual se pueda filtrar los productos por categorias.
+	    >
+
+
+
+
+Av testing tengo que tomar dos decisiones divido el servicio en dos generando dos situaciones cada una con 50% para poder decidir que pingo
+	hacer
+Posibles clases:
+	→usurario
+	→producto
+	→orden
+	→direccion
+	→carrito
+
+Diagramas:
+
+Usuario
+	Id_usuario int
+	Nombre string
+	Apellido string
+	Usuario/Email string 
+	Pass	string 
+	Carro Carrito
+	Token string 
+
+
+Producto
+	Id_product int
+	Produt_name string
+	Categoria string
+	Detalle string
+	Precio int
+	Costo int 
+	Stock int 
+
+
+Carrito(a la hora de cargar el carrito hay que tener en cuenta que los indices de los arrays
+		deben coincidir entre si)
+	Id_carrito int
+	Lista_product Producto[]
+	Lista_cantidad int[]
+	lista_Precio_u int[]
+
+
+Orden
+	Id_orden int 
+	Detalle[
+		Producto string
+		Cantidad int
+		Precio_u int
+		]
+	Total	int
+
+
+Direccion
+	Ciudad string
+	Calle string
+	Numero int
+	Barrio string
+
+
+Header html
+carrito; buscar; login; 
+
+PANTALLAS
+1) LoginPantalla  donde se loguea el usuario
+	boton para loguear
+	2 campos para loguin y password 
+	
+	manda json contenga email y pasword 
+	espera json contenga id_usuario  y token esto es para poder setear las coockies correctamente me imagino
+
+
+2)Lista Productos    donde se buscan los productos debe tener 2 partes una con los productos filtrados por nombre y otra por categoria un cuadro de busqueda que 
+					lleve al GET "/product/:KeyPro" con un checkbox para elegir entre los dos metodos
+	checkbox BusByProduct/BusByCat
+	Debe por producto un boto agregar al carrito
+	clickear producto lleva a la descripcion detallada
+	Boton aumento cantidad 
+	campo para buscar
+
+	Coockies Con carrito guardar Id_product Cantidad
+
+	manda json keyword ^ bool categoria 
+	manda json product para entrar a la descripcion detallada 
+	espera json products 
+		
+3) Descripcion Producto	 (no relacion con back?)
+
+	por producto Boton agregar al carrito
+	Boton aumento cantidad 
+
+	Coockies Con carrito guardar Id_product Cantidad
+
+4) Carrito
+	Coockies ya almacenadas productos comprados id_usuario/token
+
+	Lista Productos comprados guardados en coockies
+	Boton Comprar 
+	Boton aumento cantidad 
+	Boton borrar todo
+
+	manda json array detalles con cantidad precio_momento id_product
+	espera json OK 
+
+	React 
+	traer los datos faltantes de los productos
+5) Compra Exitosa
+
+	Boton go home/ Continuar comprando
+
+6)Historial Compras
+	manda json id_usuario
+	espera json  ordenes 
+	
+
+
+	
+
+
+	
+	
+
+
+	
+
+
+
+
+
