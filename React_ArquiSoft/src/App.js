@@ -4,9 +4,6 @@ import {Paginas} from './components/Paginas'
 
 import {BrowserRouter as Router} from 'react-router-dom';
 import Products from './components/Products'
-import Contador from './components/Contador';
-import ContadorMejorado from './components/ContadorMejorado';
-import ShoppingCart from './components/ShoppingCart';
 import Header from './components/Header';
 
 

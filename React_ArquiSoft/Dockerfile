@@ -2,8 +2,8 @@ FROM node:16
 
 EXPOSE 3000
 
-ADD . /REACT_ARQUISOFT
-WORKDIR /REACT_ARQUISOFT
+ADD . /React_ArquiSoft
+WORKDIR /React_ArquiSoft
 
 COPY package.json ./
 COPY package-lock.json ./

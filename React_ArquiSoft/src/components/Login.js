@@ -23,7 +23,7 @@ export default function Login(){
     };
 
     const login = async()=>{
-        fetch('http://127.0.0.1:3306/login',requestOptions)
+        fetch('http://localhost:3307/login',requestOptions)
         .then(response=>response.json())
         .then(response => {if (response.status == 400) {
             alert("user not found")

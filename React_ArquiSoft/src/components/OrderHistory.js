@@ -42,7 +42,7 @@ export default function OrderHistory(){
   
     const orderLoad=()=>{
         console.log("User",token)
-        let url = 'http://127.0.0.1:3306/User/OrH/'+token
+        let url = 'http://localhost:3307/User/OrH/'+token
         if(token!=""&& token != undefined){
         fetch(url,{
             method: 'GET',

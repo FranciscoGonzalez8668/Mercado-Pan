@@ -22,10 +22,10 @@ func init() {
 	DBName := "pan"
 	DBUser := "root"
 	DBPass := "root"
-	DBHost := "127.0.0.1"
+	DBHost := "mvc"
 
-	db, err = gorm.Open("mysql", DBUser+":"+DBPass+"@tcp("+DBHost+":3307)/"+DBName+"?charset=utf8&parseTime=True")
-	/*dsn:="root:root@tcp(127.0.0.1:3307)/pan?charset=utf8mb4&parseTime=True&loc=Local"
+	db, err = gorm.Open("mysql", DBUser+":"+DBPass+"@tcp("+DBHost+":3306)/"+DBName+"?charset=utf8&parseTime=True")
+	/*dsn:="root:root@tcp(localhost:3307)/pan?charset=utf8mb4&parseTime=True&loc=Local"
 	db, err :=gorm.Open(mysql.Open(DBUser+":"+DBPass+"@tcp("+DBHost+":3307)/"+DBName+"?charset=utf8&parseTime=True"))*/
 
 	if err != nil {

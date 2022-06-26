@@ -19,16 +19,16 @@ import './Css/Header.css';
             </div>
         
             <div className="clases">
-           <a className="botones" href="http://127.0.0.1:3000/products"  > PRODUCTOS </a>
+           <a className="botones" href="http://localhost:3000/products"  > PRODUCTOS </a>
            <a className="botones" href="#!"> CATEGORIAS </a>
-           {UserToken!=undefined ? <a className="botones" href='#' onClick={()=>{logOutCookies(); window.location.reload()}}>LOG OUT</a>: <a className="botones" href="http://127.0.0.1:3000/"  > LOG IN </a>}
+           {UserToken!=undefined ? <a className="botones" href='#' onClick={()=>{logOutCookies(); window.location.reload()}}>LOG OUT</a>: <a className="botones" href="http://localhost:3000/"  > LOG IN </a>}
             </div>
             
-            <div><a href="http://127.0.0.1:3000/cart">
+            <div><a href="http://localhost:3000/cart">
             <img className="carrito" src={require("./imagenes/carrito.png")} alt='logocarrp'></img>
             </a>
             </div>
-            {UserToken!=undefined? <a className='botones' href='http://127.0.0.1:3000/OrderHistory'>OrderHistory</a>: <></>}
+            {UserToken!=undefined? <a className='botones' href='http://localhost:3000/OrderHistory'>OrderHistory</a>: <></>}
             
         </div>
         

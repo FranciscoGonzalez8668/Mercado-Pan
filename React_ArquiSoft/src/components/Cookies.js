@@ -124,7 +124,6 @@ export function removeOneCart(id_p){
 export function getUserCookies(){
     let cookie = Cookie.get("User")
     if (cookie == undefined){
-        console.log("UNDEFINED")
         return 
     }
     console.log("Cookie")

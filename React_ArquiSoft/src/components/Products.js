@@ -7,7 +7,7 @@ const loadOptions ={
     headers :{'Content-Type': 'application/'} 
 }
 async function getProducts(){
-    return await fetch('http://127.0.0.1:3306/product/all',loadOptions)
+    return await fetch('http://localhost:3307/product/all',loadOptions)
     .then(response=>response.json())
 }
 
@@ -37,7 +37,7 @@ export default function Products(){
         headers :{'Content-Type': 'application/'} 
     }
     const onSubmit= () =>{
-        fetch('http://127.0.0.1:3306/product/all',loadOptions)
+        fetch('http://localhost:3307/product/all',loadOptions)
         .then(response=>response.json())
         .then(response=>setProducts(response));
     }
@@ -60,7 +60,7 @@ export default function Products(){
             return
         }
         if(category==true){
-        fetch('http://127.0.0.1:3306/product/cat/'+keyPro)
+        fetch('http://localhost:3307/product/cat/'+keyPro)
         .then(response=>response.json())
         .then(response=>{if(response==null){
             alert("Category not found")
@@ -71,7 +71,7 @@ export default function Products(){
         })
         return
         }
-      await fetch('http://127.0.0.1:3306/product/product/'+keyPro)
+      await fetch('http://localhost:3307/product/product/'+keyPro)
         .then(response=>response.json())
         .then(response=>{if(response==null){
             alert("Products not found")

@@ -1,31 +1,31 @@
 version: '3'
 
 services:
-  dbmysql:
+  mvc:
     build: ./db
     environment:
       MYSQL_DATABASE: pan
-      MYSQL_ROOT_PASSWORD: pass
-      MYSQL_ALLOW_EMPTY_PASSWORD: true
+      MYSQL_ROOT_PASSWORD: root
     ports:
-      - "3307:3307"
+      - "3306:3306"
     volumes:
       - ./db:/docker-entrypoint-initdb.d
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root","-p pass"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root","-p root"]
       timeout: 20s
       retries: 10
-  frontend:
-    build: ./react_ArquiSoft
+  front:
+    build: ./React_ArquiSoft
     depends_on:
-      dbmysql:
+      mvc:
         condition: service_healthy
     ports:
       - "3000:3000"
-  backend:
+  back:
     build: ./ServicioWeb_ArqSoft
+    restart: on-failure
     depends_on:
-      dbmysql:
+      mvc:
         condition: service_healthy
     ports:
-      - "3306:3306"
+      - "3307:3307"

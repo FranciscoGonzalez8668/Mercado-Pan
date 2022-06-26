@@ -1,14 +1,8 @@
 import { useReducer, useState } from "react";
-import { TYPES } from "../actions/shoppingActions";
-import { shoppingInitialState, shoppingReducer } from "../reducers/shoppingReducer";
-import ProductItem from "./ProductItem";
-import CartItem from "./CartItem";
 import addToCart, { cartLoad } from "./Cookies";
 import {removeOneCart} from "./Cookies"
 import {deleteCart} from "./Cookies";
 import {getUserCookies} from "./Cookies";
-import Cookies from "universal-cookie";
-import Products from "./Products";
 
 function addToCartCart(detalle){
     addToCart(detalle.id_product)
@@ -23,7 +17,7 @@ function NewOrder(products){
         detalles: products
     }
     console.log(order)
-    fetch('http://127.0.0.1:3306/compra/add',{
+    fetch('http://localhost:3307/compra/add',{
         method: 'PUT',
         headers :{'Content-Type':'application/json; charset=utf-8'},
         body: JSON.stringify(order)
@@ -36,7 +30,7 @@ async function ProductLoad(id_products){
     id_products.forEach(id => array.push(id));
     let obj = {id_products: array};
     console.log("to fecth")
-    return fetch('http://127.0.0.1:3306/cart/ProLo',{
+    return fetch('http://localhost:3307/cart/ProLo',{
         method: 'POST',
         headers :{'Content-Type':'application/json; charset=utf-8'},
         body: JSON.stringify(obj)
@@ -86,7 +80,7 @@ async function productCartLoad(){
 }
 const ShoppingCart = () =>{
 
-    const[state,dispatch] = useReducer(shoppingReducer, shoppingInitialState);
+
     const[product, setProduct] = useState([])
 
         //ESTO HACE REFERENCIA AL ESTADO INICIAL

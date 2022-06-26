@@ -33,5 +33,5 @@ func StartRoute() {
 
 	/*router := gin.Default()
 	router.SetTrustedProxies(nil)*/
-	router.Run(":3306")
+	router.Run(":3307")
 }
